@@ -15,12 +15,13 @@ namespace BackEndPreparatoria.Controllers
     public class mariaruizsController : ApiController
     {
         private DataContext db = new DataContext();
-
+        [Authorize]
         // GET: api/mariaruizs
         public IQueryable<ruiz> Getruizs()
         {
             return db.ruizs;
         }
+        [Authorize]
 
         // GET: api/mariaruizs/5
         [ResponseType(typeof(ruiz))]
@@ -34,6 +35,7 @@ namespace BackEndPreparatoria.Controllers
 
             return Ok(ruiz);
         }
+        [Authorize]
 
         // PUT: api/mariaruizs/5
         [ResponseType(typeof(void))]
@@ -69,6 +71,7 @@ namespace BackEndPreparatoria.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
+        [Authorize]
 
         // POST: api/mariaruizs
         [ResponseType(typeof(ruiz))]
@@ -84,6 +87,7 @@ namespace BackEndPreparatoria.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = ruiz.ruizID }, ruiz);
         }
+        [Authorize]
 
         // DELETE: api/mariaruizs/5
         [ResponseType(typeof(ruiz))]
